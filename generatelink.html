@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Generate Link with Parameters</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        p {
+            text-align: left;
+            margin-bottom: 15px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            resize: vertical;
+            box-sizing: border-box;
+        }
+
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Generate Link with Parameters</h1>
+
+    <p>Application link (optional):</p>
+    <textarea rows="4" id="appLink"></textarea>
+
+    <p>Deep link (optional):</p>
+    <textarea rows="4" id="deepLink"></textarea>
+
+    <button onclick="generateLink()">Generate Link</button>
+
+    <script>
+        function generateLink() {
+            var appLinkValue = document.getElementById("appLink").value;
+            var deepLinkValue = document.getElementById("deepLink").value;
+
+            var link = "./?";
+            if (appLinkValue) {
+                link = link + "appLink=" + encodeURIComponent(appLinkValue);
+            }
+            if (appLinkValue && deepLinkValue) {
+                link = link + "&";
+            }
+            if (deepLinkValue) {
+                link = link + "deepLink=" + encodeURIComponent(deepLinkValue);
+            }
+
+            if (appLinkValue || deepLinkValue) {
+                // Open the link in a new tab/window
+                window.open(link, "_blank");
+            }
+        }
+    </script>
+</body>
+
+</html>
