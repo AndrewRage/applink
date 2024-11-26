@@ -19,82 +19,14 @@
             text-align: center;
             margin-bottom: 15px;
         }
-
-        #qrcode {
-            display: flex;
-            justify-content: center;
-            margin-top: 40px;
-        }
-
-        a {
-            display: block;
-            text-align: center;
-            margin-bottom: 10px;
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 4px;
-        }
-
-        a:hover {
-            background-color: #45a049;
-        }
     </style>
 </head>
 
 <body>
     <h1>Deep Link Helper</h1>
 
-    <p>This page should be open from an Android device. By the link(s) below, you can set up the testing application.</p>
+    <p>maintenance</p>
 
-    <a id="appLink" href="#">Click here to download the .apk</a>
-
-    <a id="deepLink" href="#">Click here to set up the application settings</a>
-
-    <div id="qrcode"></div>
-
-    <script src="https://davidshimjs.github.io/qrcodejs/qrcode.min.js"></script>
-    <script>
-        function getQueryParam(name) {
-            const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(name);
-        }
-
-        function getDestinationURL(name) {
-            const queryParam = getQueryParam(name);
-            if (queryParam) {
-                return decodeURIComponent(queryParam);
-            } else {
-                return null;
-            }
-        }
-
-        const appLinkUrl = getDestinationURL('appLink')
-        const appLink = document.getElementById('appLink');
-        if (appLinkUrl) {
-            appLink.href = appLinkUrl;
-        } else {
-            appLink.style.display = "none";
-        }
-
-        const deepLinkUrl = getDestinationURL('deepLink')
-        const deepLink = document.getElementById('deepLink');
-        if (deepLinkUrl) {
-            deepLink.href = deepLinkUrl;
-        } else {
-            deepLink.style.display = "none";
-        }
-
-        var currentURL = window.location.href;
-        var qrcodeContainer = document.getElementById("qrcode");
-
-        new QRCode(qrcodeContainer, {
-            text: currentURL,
-            width: 512,
-            height: 512
-        });
-    </script>
 </body>
 
 </html>
